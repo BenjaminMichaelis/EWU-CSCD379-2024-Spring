@@ -8,13 +8,13 @@ namespace Wordle.Api.Tests
         [TestMethod]
         public void LoadWordList_SuccessfullyGetsWords()
         {
-            CollectionAssert.AllItemsAreNotNull(WordOfTheDayService.LoadWordList(Path.Combine("..", "..", "..", "..", "..", "wordle-web", "scripts", "wordList.ts")));
+            CollectionAssert.AllItemsAreNotNull(WordOfTheDayService.LoadWordList(WordOfTheDayService.filePath));
         }
 
         [TestMethod]
         public void LoadWordList_ContainsYules()
         {
-            List<string> collection = WordOfTheDayService.LoadWordList(Path.Combine("..", "..", "..", "..", "..", "wordle-web", "scripts", "wordList.ts"));
+            List<string> collection = WordOfTheDayService.LoadWordList(WordOfTheDayService.filePath);
             CollectionAssert.Contains(collection, "yules");
         }
     }

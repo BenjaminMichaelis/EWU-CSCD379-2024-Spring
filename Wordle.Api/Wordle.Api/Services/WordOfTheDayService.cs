@@ -1,9 +1,11 @@
-﻿namespace Wordle.Api.Services;
+﻿using System.Reflection;
+
+namespace Wordle.Api.Services;
 
 public class WordOfTheDayService
 {
-
-    private static readonly string filePath = Path.Combine("..", "..", "wordle-web", "scripts", "wordList.ts");
+    private static readonly string directory = Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)!;
+    public static readonly string filePath = Path.Combine(directory, "..", "..", "..", "..", "..", "wordle-web", "scripts", "wordList.ts");
     private List<string> wordList = LoadWordList(filePath);
 
     public static List<string> LoadWordList(string filePath)
