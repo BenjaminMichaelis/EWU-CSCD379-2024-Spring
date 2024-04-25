@@ -5,11 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddCors(options =>
 {
-options.AddPolicy(name: AllOrigins, policy => {
-    policy.WithOrigins("*");
-    policy.AllowAnyMethod();
-    policy.AllowAnyHeader();
-});
+    options.AddPolicy(name: AllOrigins, policy =>
+    {
+        policy.WithOrigins("*");
+        policy.AllowAnyMethod();
+        policy.AllowAnyHeader();
+    });
 });
 
 builder.Services.AddControllers();
